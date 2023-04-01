@@ -1,8 +1,9 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import openai
-openai.organization = "org-vot3KKE3lkxaQfYeHNg0Osnn"
-openai.api_key = "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"
+import config
+openai.organization = config.ORGANIZATION
+openai.api_key = config.API_KEY
 
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'Xin chào {update.effective_user.first_name}')
